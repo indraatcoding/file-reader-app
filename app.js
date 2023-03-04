@@ -15,6 +15,15 @@ app.get('/send/:data', (req, res) => {
     res.json({
         message: 'Your data is saved',
     })
+});
+
+app.get('/get', (req, res) => {
+    const data = fs.readFileSync('test.txt', 'utf-8');
+    console.log(data);
+
+    res.json({
+        message: data,
+    })
 })
 
 app.listen(port, (err) => {
